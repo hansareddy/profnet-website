@@ -52,21 +52,6 @@ if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
     });
 }
 
-// Reveal on Scroll Observer
-const revealElements = document.querySelectorAll('.reveal');
-const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            observer.unobserve(entry.target);
-        }
-    });
-}, {
-    threshold: 0.1 // Lowered threshold for faster triggering
-});
-
-revealElements.forEach(el => revealObserver.observe(el));
-
 console.log('Professional Networking Site Initialized');
 
 const joinForm = document.getElementById('joinForm');
