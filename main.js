@@ -62,7 +62,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    threshold: 0.15
+    threshold: 0.1 // Lowered threshold for faster triggering
 });
 
 revealElements.forEach(el => revealObserver.observe(el));
