@@ -1,0 +1,375 @@
+/* 
+   NOTE: If your editor warns about "Unknown at rule @tailwind" or "@apply", 
+   this is a harmless linting issue. These rules are processed by PostCSS.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+/* Base Styles */
+
+:root {
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-white text-black antialiased overflow-x-hidden scroll-smooth;
+}
+
+p,
+li,
+span,
+a,
+input,
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+/* Architectural Dot Grid Overlay - White Mode */
+.bg-architectural-grid {
+    background-image: linear-gradient(#00000008 1.5px, transparent 1.5px), linear-gradient(90deg, #00000008 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Navigation Enhancement */
+nav a {
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #B4F708;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+#main-nav {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Fresh Navbar Architecture */
+.navbar-fresh {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .navbar-fresh {
+        height: 80px;
+    }
+}
+
+/* The Frame: Maximized to fill the navbar without increasing its height */
+.logo-zoom-frame {
+    height: 62px;
+    width: 320px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .logo-zoom-frame {
+        height: 78px;
+        width: 420px;
+        /* Widened further for safety */
+    }
+}
+
+/* The Zoom: Balanced for maximum size without clipping */
+.logo-zoom-img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-25%) scale(1.8) !important;
+    /* Restored to 'Perfect' local setting */
+    transform-origin: left center;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Modern Footer Refinements */
+.footer-zoom-frame {
+    height: 80px;
+    width: 280px;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .footer-zoom-frame {
+        height: 100px;
+        width: 320px;
+    }
+}
+
+.footer-zoom-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%) scale(1.7) !important;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .footer-zoom-img {
+        transform: translate(-50%, -25%) scale(1.7) !important;
+        /* Centered on mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-zoom-img {
+        left: 0;
+        transform: translateY(-25%) scale(1.7) !important;
+        /* Left aligned on desktop */
+        left: 0;
+    }
+}
+
+.footer-link {
+    @apply text-gray-400 hover:text-brand-accent transition-all duration-300 relative inline-block;
+}
+
+.footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #B4F708;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-title {
+    @apply text-xs font-black uppercase tracking-[0.2em] text-gray-500 mb-6 flex items-center gap-3;
+}
+
+.footer-title::after {
+    content: '';
+    @apply h-px w-8 bg-white/10;
+}
+
+.footer-logo {
+    @apply w-auto object-contain transition-all duration-500;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+.footer-logo:hover {
+    filter: brightness(1) invert(0);
+    opacity: 1;
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 15px rgba(180, 247, 8, 0.4));
+}
+
+/* Subtle Text Outline */
+.text-stroke-subtle {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+    color: transparent;
+}
+
+.text-stroke-black {
+    -webkit-text-stroke: 1.5px black;
+    color: transparent;
+}
+
+/* Hybrid King Kong Card - Dark Premium */
+.glass-card-new {
+    @apply bg-[#0A0A0A] border border-white/10 transition-all duration-300 relative overflow-hidden rounded-2xl;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+.glass-card-new h3 {
+    @apply text-white transition-colors duration-300;
+}
+
+.glass-card-new p {
+    @apply text-gray-400 transition-colors duration-300;
+}
+
+/* Base Icon Color (White on Dark - Default) */
+.glass-card-new svg {
+    @apply text-white transition-colors duration-300;
+}
+
+/* Interactive Swap */
+.glass-card-new:hover,
+.glass-card-new.mobile-snap-active {
+    @apply bg-[#111111] -translate-y-2 border-[#B4F708];
+    box-shadow: 0 20px 40px -10px rgba(180, 247, 8, 0.1);
+    /* Neon Glow Shadow */
+}
+
+.glass-card-new:hover h3,
+.glass-card-new.mobile-snap-active h3 {
+    @apply text-white;
+}
+
+.glass-card-new:hover p,
+.glass-card-new.mobile-snap-active p {
+    @apply text-gray-300;
+}
+
+.glass-card-new:hover .text-brand-accent,
+.glass-card-new.mobile-snap-active .text-brand-accent {
+    color: #B4F708 !important;
+}
+
+/* Force icon to Neon Green on hover */
+.glass-card-new:hover svg,
+.glass-card-new.mobile-snap-active svg {
+    @apply text-[#B4F708];
+}
+
+/* Card Inner Highlight (Neon Sidebar) */
+.glass-card-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    background: #B4F708;
+    transition: width 0.3s ease;
+}
+
+.glass-card-new:hover::before,
+.glass-card-new.mobile-snap-active::before {
+    width: 6px;
+    /* Thick Neon Bar on Hover */
+}
+
+/* Buttons - Brutalist Authority Style */
+.btn-primary {
+    @apply px-6 py-3 md:px-10 md:py-5 bg-brand-accent hover:bg-[#D4F844] text-black font-black uppercase tracking-widest rounded-xl transition-all duration-200 transform hover:-translate-y-1 text-base md:text-xl inline-flex items-center justify-center gap-2 border-2 border-black;
+    box-shadow: 6px 6px 0px 0px #000000;
+    /* Hard Shadow */
+}
+
+.btn-primary:hover {
+    box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.skew-y-3 {
+    transform: skewY(3deg);
+}
+
+.skew-y-negative-3 {
+    transform: skewY(-3deg);
+}
+
+.btn-ghost {
+    @apply px-6 py-3 md:px-10 md:py-5 bg-transparent border border-black/20 hover:border-black text-black font-bold rounded-xl transition-all duration-300 hover:bg-black/5 active:scale-95 text-base md:text-lg inline-flex items-center justify-center;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7C3AED;
+}
+
+/* Dark Section Utilities */
+.glass-card-dark {
+    @apply bg-[#0A0A0A] border-2 border-white/10 transition-all duration-300 relative overflow-hidden rounded-2xl;
+}
+
+.glass-card-dark:hover {
+    @apply bg-zinc-900 -translate-y-2 border-brand-accent;
+    box-shadow: 0 20px 40px -10px rgba(180, 247, 8, 0.1);
+}
+
+.glass-card-dark h3 {
+    @apply text-white;
+}
+
+.glass-card-dark p {
+    @apply text-gray-400;
+}
+
+.text-stroke-white {
+    -webkit-text-stroke: 1.5px white;
+    color: transparent;
+}
+
+/* Reveal on Scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
