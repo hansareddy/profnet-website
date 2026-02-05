@@ -340,18 +340,19 @@
 
 <body class="relative bg-brand-base overflow-x-hidden">
     <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 bg-gray-50/95 backdrop-blur-xl border-b-2 border-black/10 shadow-xl navbar-fresh"
+    <nav class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 bg-black/20 backdrop-blur-md border-b border-white/10 shadow-lg navbar-fresh transition-all duration-300"
         id="main-nav">
         <!-- Logo Zoom Frame -->
-        <a href="#" class="logo-zoom-frame">
-            <img src="logo.png" alt="Professional Networking" class="logo-zoom-img" />
+        <a href="#" class="logo-zoom-frame group">
+            <img src="logo.png" alt="Professional Networking"
+                class="logo-zoom-img brightness-0 invert transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
         </a>
-        <div class="hidden md:flex space-x-10 font-bold text-sm uppercase tracking-widest text-gray-600">
-            <a href="#about" class="hover:text-brand-accent transition-colors">Mission</a>
-            <a href="#features" class="hover:text-brand-accent transition-colors">Features</a>
-            <a href="#industries" class="hover:text-brand-accent transition-colors">Industries</a>
-            <a href="#community" class="hover:text-brand-accent transition-colors">Community</a>
-            <a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a>
+        <div class="hidden md:flex space-x-10 font-bold text-sm uppercase tracking-widest text-white/90">
+            <a href="#about" class="hover:text-brand-accent transition-colors drop-shadow-sm">Mission</a>
+            <a href="#features" class="hover:text-brand-accent transition-colors drop-shadow-sm">Features</a>
+            <a href="#industries" class="hover:text-brand-accent transition-colors drop-shadow-sm">Industries</a>
+            <a href="#community" class="hover:text-brand-accent transition-colors drop-shadow-sm">Community</a>
+            <a href="#contact" class="hover:text-brand-accent transition-colors drop-shadow-sm">Contact</a>
         </div>
         <div class="flex items-center gap-4">
             <button data-target="join-container"
@@ -359,7 +360,7 @@
                 Login
             </button>
             <button id="mobile-menu-btn"
-                class="md:hidden text-2xl text-black hover:text-brand-accent transition-colors focus:outline-none p-1">
+                class="md:hidden text-2xl text-white hover:text-brand-accent transition-colors focus:outline-none p-1 drop-shadow-md">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
                     </path>
@@ -370,18 +371,18 @@
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu"
-        class="fixed inset-0 bg-white/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden">
-        <button id="close-menu-btn" class="absolute top-6 right-8 text-4xl text-black">&times;</button>
+        class="fixed inset-0 bg-[#05050A]/95 backdrop-blur-xl z-[60] transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-8 text-4xl text-white">&times;</button>
         <a href="#about"
-            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Mission</a>
+            class="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors mobile-link">Mission</a>
         <a href="#features"
-            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Features</a>
+            class="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors mobile-link">Features</a>
         <a href="#industries"
-            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Industries</a>
+            class="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors mobile-link">Industries</a>
         <a href="#community"
-            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Community</a>
+            class="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors mobile-link">Community</a>
         <a href="#contact"
-            class="text-2xl font-black uppercase tracking-widest hover:text-brand-accent transition-colors mobile-link">Contact</a>
+            class="text-2xl font-black uppercase tracking-widest text-white hover:text-brand-accent transition-colors mobile-link">Contact</a>
         <button data-target="join-container"
             class="mobile-link px-8 py-3 bg-brand-accent text-black font-black uppercase tracking-widest border-2 border-black shadow-[4px_4px_0px_0px_black]">
             Login / Join
@@ -391,30 +392,42 @@
     <main class="relative z-10">
         <!-- Hero Section -->
         <section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+            <!-- Video Background -->
+            <div class="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+                <video autoplay loop muted playsinline
+                    class="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2">
+                    <source src="/hero-video.mp4" type="video/mp4">
+                    <source src="/hero-video.mov" type="video/quicktime">
+                </video>
+                <!-- Heavy dark overlay to ensure text readability -->
+                <div class="absolute inset-0 bg-black/60"></div>
+            </div>
+
             <!-- Ambient Spotlight (Hero Nuance) -->
             <!-- Ambient Spotlight (Professional Glow) -->
             <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-slate-200/30 rounded-full blur-[80px] md:blur-[100px] pointer-events-none z-0 mix-blend-multiply">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[800px] md:h-[800px] bg-brand-accent/20 rounded-full blur-[80px] md:blur-[100px] pointer-events-none z-0 mix-blend-multiply">
             </div>
 
             <div class="container relative z-20 pt-20 md:pt-10">
                 <div class="max-w-5xl mx-auto text-center relative z-20">
                     <!-- Branding Tag -->
                     <div
-                        class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-black/5 text-black text-xs font-bold uppercase tracking-widest mb-10 backdrop-blur-md animate-fade-in">
-                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 border border-white/10 text-white text-xs font-bold uppercase tracking-widest mb-10 backdrop-blur-md animate-fade-in shadow-lg">
+                        <span
+                            class="w-2 h-2 rounded-full bg-brand-accent animate-pulse shadow-[0_0_10px_#B4F708]"></span>
                         The Premier Australian Community
                     </div>
 
                     <!-- Massive Headline (Scaled for Mobile) -->
                     <h1
-                        class="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.1] mb-6 md:mb-10 animate-slide-up break-words font-sans">
-                        <span class="block text-black mb-1 md:mb-2">Build Meaningful</span>
-                        <span class="block text-black mb-2 md:mb-4">Professional</span>
-                        <span class="block text-black">Connections</span>
+                        class="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[1.1] mb-6 md:mb-10 animate-slide-up break-words font-sans drop-shadow-2xl">
+                        <span class="block text-white mb-1 md:mb-2">Build Meaningful</span>
+                        <span class="block text-white mb-2 md:mb-4">Professional</span>
+                        <span class="block text-white">Connections</span>
                     </h1>
 
-                    <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-light animate-slide-up"
+                    <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-12 leading-relaxed font-light animate-slide-up drop-shadow-md"
                         style="animation-delay: 100ms;">
                         That Open <span class="bg-brand-accent text-black px-2 font-bold not-italic">Real
                             Opportunities</span> For Your
@@ -431,11 +444,18 @@
                                     d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </button>
-                        <button class="btn-ghost" data-target="how-it-works">
+                        <button
+                            class="btn-ghost !text-white !border-white/30 hover:!border-brand-accent hover:!text-brand-accent hover:!bg-black/50"
+                            data-target="how-it-works">
                             Explore How It Works
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Smooth Fade into Next Section -->
+            <div
+                class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#05050A] to-transparent pointer-events-none z-10">
             </div>
 
             <!-- Scroll Indicator -->

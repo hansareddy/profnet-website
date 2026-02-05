@@ -4,11 +4,11 @@
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('main-nav');
     if (window.scrollY > 20) {
-        nav.classList.add('bg-white/100', 'shadow-2xl');
-        nav.classList.remove('bg-gray-50/95', 'shadow-xl');
+        nav.classList.add('bg-black/90', 'shadow-2xl', 'backdrop-blur-xl');
+        nav.classList.remove('bg-black/20', 'shadow-lg', 'backdrop-blur-md');
     } else {
-        nav.classList.add('bg-gray-50/95', 'shadow-xl');
-        nav.classList.remove('bg-white/100', 'shadow-2xl');
+        nav.classList.add('bg-black/20', 'shadow-lg', 'backdrop-blur-md');
+        nav.classList.remove('bg-black/90', 'shadow-2xl', 'backdrop-blur-xl');
     }
 });
 
